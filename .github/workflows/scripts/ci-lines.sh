@@ -71,6 +71,11 @@ analyze_files() {
             continue
         fi
 
+        # Skip workflow and utility files
+        if [[ "$file" == .github/* ]] || [[ "$file" == sys/* ]]; then
+            continue
+        fi
+
         # Check if file extension is in our list
         local ext="${file##*.}"
         local should_analyze=false
