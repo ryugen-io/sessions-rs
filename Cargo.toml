@@ -1,0 +1,21 @@
+[package]
+name = "session"
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.91.1"
+authors = ["pl"]
+description = "Starship session info with customizable icons and colors"
+license = "MIT"
+
+[[bin]]
+name = "sessions"
+path = "src/main.rs"
+
+[profile.release]
+opt-level = "z"     # Optimize for size
+lto = true          # Enable Link Time Optimization
+codegen-units = 1   # Better optimization
+strip = true        # Strip symbols
+panic = "abort"     # Smaller binary
+
+[dependencies]

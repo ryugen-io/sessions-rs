@@ -1,0 +1,65 @@
+# Session configuration for Starship
+# Copy this file to ~/.config/starship/session.toml and customize
+
+# ============================
+# Color Definitions
+# ============================
+# Define your color palette here
+# Colors can be referenced by name in host configs
+
+[colors]
+blue = "#3B82F6"
+red = "#EF4444"
+green = "#10B981"
+purple = "#A855F7"
+orange = "#F97316"
+yellow = "#FBBF24"
+pink = "#F472B6"
+teal = "#14B8A6"
+
+# ============================
+# Default Configuration
+# ============================
+# Used when no host-specific config matches
+
+[default]
+icon = ""
+color = "blue"
+
+# ============================
+# Host-Specific Configurations
+# ============================
+# Format: [hosts.HOSTNAME]
+# icon = "nerd font icon"
+# color = "color_name" or "#HEX_COLOR"
+
+[hosts.ryusw]
+icon = "󰟡"
+color = "blue"
+
+[hosts.ryudns]
+icon = "󰇖"
+color = "green"
+
+[hosts.ryunas]
+icon = "󰣳"
+color = "orange"
+
+[hosts.ryujin]
+icon = ""
+color = "purple"
+
+[hosts.ryucore]
+icon = ""
+color = "red"
+
+# Wildcard patterns (matches prefix)
+# All hosts starting with "oni" will use this config
+["hosts.oni*"]
+icon = "󰒋"
+color = "orange"
+
+# All hosts starting with "mx" will use this config
+["hosts.mx*"]
+icon = "󰒋"
+color = "teal"

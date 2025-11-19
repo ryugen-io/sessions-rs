@@ -1,0 +1,47 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+.venv-dev/
+venv/
+ENV/
+env/
+*.egg-info/
+.mypy_cache/
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Logs
+*.log
+server.log
+
+# Build artifacts
+*.o
+*.a
+*.lib
+*.exe
+*.dll
+
+# Backups
+*.backup
+*.backup-*
+*.bak
+
+# Runtime
+*.pid
