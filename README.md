@@ -4,8 +4,7 @@
 sessions-rs/
 ├── .github/
 │   ├── logs/
-│   │   ├── 20251119-211030-workflow.log
-│   │   └── 20251119-211123-workflow.log
+│   │   └── 20251119-201452-workflow.log
 │   ├── skips/
 │   │   └── SKIP_SYSTEM.md
 │   └── workflows/
@@ -21,7 +20,6 @@ sessions-rs/
 │   ├── main.rs
 │   └── toml_parser.rs
 ├── sys/
-│   ├── env/
 │   ├── rust/
 │   │   ├── audit.py
 │   │   ├── check.py
@@ -44,9 +42,9 @@ sessions-rs/
 │       ├── venv.py
 │       └── xdg_paths.py
 ├── build.py
-├── Cargo.lock
 ├── Cargo.toml
 ├── install.py
 ├── justfile
+├── README.md
 └── sessions.toml.example
 ```
