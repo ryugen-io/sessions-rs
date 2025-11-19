@@ -11,7 +11,7 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 source "${SCRIPT_DIR}/ci-logger.sh"
 
 # File extensions to analyze
-readonly EXTENSIONS=("sh" "py" "yml" "yaml")
+readonly EXTENSIONS=("rs" "toml" "sh" "py" "yml" "yaml")
 
 # Count lines in a file with basic comment detection
 count_lines() {
@@ -24,6 +24,14 @@ count_lines() {
     # Count comment-only lines based on file type
     local comments=0
     case "$ext" in
+        rs)
+            # Rust: lines starting with //
+            comments=$(grep -cE '^\s*//' "$file" 2>/dev/null) || comments=0
+            ;;
+        toml)
+            # TOML: lines starting with #
+            comments=$(grep -cE '^\s*#' "$file" 2>/dev/null) || comments=0
+            ;;
         sh)
             # Shell: lines starting with #
             comments=$(grep -cE '^\s*#' "$file" 2>/dev/null) || comments=0
