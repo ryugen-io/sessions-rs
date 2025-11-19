@@ -4,17 +4,10 @@
 sessions-rs/
 ├── .github/
 │   ├── logs/
-│   │   ├── 20251119-201955-workflow.log
-│   │   ├── 20251119-202004-workflow.log
-│   │   ├── 20251119-202005-workflow.log
-│   │   ├── 20251119-202007-workflow.log
-│   │   ├── 20251119-202253-workflow.log
-│   │   ├── 20251119-202303-workflow.log
-│   │   ├── 20251119-202305-workflow.log
-│   │   ├── 20251119-202501-workflow.log
-│   │   ├── 20251119-202509-workflow.log
-│   │   ├── 20251119-202511-workflow.log
-│   │   └── 20251119-203114-workflow.log
+│   │   ├── 20251119-203114-workflow.log
+│   │   ├── 20251119-203118-workflow.log
+│   │   ├── 20251119-203131-workflow.log
+│   │   └── 20251119-203517-workflow.log
 │   ├── skips/
 │   │   └── SKIP_SYSTEM.md
 │   └── workflows/
