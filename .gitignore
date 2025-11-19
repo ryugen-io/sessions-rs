@@ -31,6 +31,9 @@ env/
 *.log
 server.log
 
+# Allow workflow logs to be committed
+!.github/logs/*.log
+
 # Build artifacts
 *.o
 *.a
