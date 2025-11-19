@@ -1,0 +1,21 @@
+[2025-11-19 20:35:18] [lines] Analyzing changed files...
+[2025-11-19 20:35:18] [info]   Cargo.toml                                  21 lines (18 code, 0 comments, 3 blank)
+[2025-11-19 20:35:18] [info]   build.py                                   162 lines (124 code, 6 comments, 32 blank)
+[2025-11-19 20:35:18] [info]   install.py                                 166 lines (122 code, 8 comments, 36 blank)
+[2025-11-19 20:35:18] [info]   src/color.rs                                40 lines (28 code, 4 comments, 8 blank)
+[2025-11-19 20:35:18] [info]   src/config.rs                              127 lines (97 code, 12 comments, 18 blank)
+[2025-11-19 20:35:18] [info]   src/main.rs                                 82 lines (57 code, 13 comments, 12 blank)
+[2025-11-19 20:35:18] [info]   src/toml_parser.rs                          95 lines (72 code, 6 comments, 17 blank)
+[2025-11-19 20:35:18] [summary] Line Count Summary
+[2025-11-19 20:35:18] [info]   Files analyzed:       7
+[2025-11-19 20:35:18] [info]   Code lines:         518
+[2025-11-19 20:35:18] [info]   Comment lines:       49
+[2025-11-19 20:35:18] [info]   Blank lines:        126
+[2025-11-19 20:35:18] [info]   Total lines:        693
+[2025-11-19 20:35:18] [info]   Average/file:        74 lines
+[2025-11-19 20:35:18] [success]   Line count analysis complete!
+[2025-11-19 20:35:18] [commit] committing...
+[2025-11-19 20:35:18] [success]   committed
+[2025-11-19 20:35:18] [push] pushing...
+[2025-11-19 20:35:18] [success]   pushed
+[2025-11-19 20:35:18] [workflow] readme update complete
