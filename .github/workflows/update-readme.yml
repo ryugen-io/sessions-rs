@@ -46,7 +46,11 @@ jobs:
           fi
 
           log_step "check" "checking changes..."
-          if git diff --quiet README.md; then
+
+          # Add to staging to detect new files
+          git add README.md
+
+          if git diff --cached --quiet README.md; then
             log_info "no changes"
             echo "changed=false" >> $GITHUB_OUTPUT
           else
@@ -70,7 +74,6 @@ jobs:
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add README.md
 
           if git commit -m "docs: auto-update readme
 
