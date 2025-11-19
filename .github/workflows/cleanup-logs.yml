@@ -1,0 +1,72 @@
+name: Cleanup Old Logs
+
+on:
+  workflow_run:
+    workflows: ["Update README"]
+    types:
+      - completed
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Cleanup old logs
+        id: cleanup
+        run: |
+          if python3 .github/workflows/scripts/cleanup_logs.py; then
+            echo "success=true" >> $GITHUB_OUTPUT
+          else
+            echo "success=false" >> $GITHUB_OUTPUT
+            exit 1
+          fi
+
+      - name: Commit cleanup
+        if: steps.cleanup.outputs.success == 'true'
+        run: |
+          source .github/workflows/scripts/ci-logger.sh
+
+          # Check if there are changes
+          if git diff --quiet .github/logs/; then
+            log_info "no cleanup needed"
+            exit 0
+          fi
+
+          log_step "commit" "committing cleanup..."
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add .github/logs/
+
+          if git commit -m "chore: cleanup old workflow logs [skip ci]"; then
+            log_success "committed"
+          else
+            log_error "commit failed"
+            exit 1
+          fi
+
+          log_step "push" "pushing..."
+
+          BRANCH_NAME="${GITHUB_HEAD_REF:-${GITHUB_REF_NAME}}"
+
+          if git push origin "HEAD:${BRANCH_NAME}"; then
+            log_success "pushed"
+          else
+            log_error "push failed"
+            exit 1
+          fi
+
+          log_info "cleanup complete"
