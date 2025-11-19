@@ -20,20 +20,28 @@ KEEP_RUNS = 2  # Keep logs from the last 2 workflow runs
 
 
 def group_logs_by_run():
-    """Group log files by run timestamp prefix"""
+    """Group log files by run timestamp prefix (5-minute windows)"""
     if not LOG_DIR.exists():
         return {}
 
     log_files = list(LOG_DIR.glob('*.log'))
 
-    # Group by timestamp prefix (YYYYMMDD-HHMMSS)
+    # Group by 5-minute timestamp windows
     runs = defaultdict(list)
 
     for log_file in log_files:
         # Extract timestamp from filename: 20251119-201452-workflow.log
-        match = re.match(r'^(\d{8}-\d{6})', log_file.name)
+        match = re.match(r'^(\d{8})-(\d{2})(\d{2})', log_file.name)
         if match:
-            timestamp = match.group(1)
+            date = match.group(1)  # YYYYMMDD
+            hour = match.group(2)  # HH
+            minute = int(match.group(3))  # MM
+
+            # Round minute down to nearest 5-minute block
+            rounded_minute = (minute // 5) * 5
+
+            # Create timestamp key: YYYYMMDD-HHMM
+            timestamp = f"{date}-{hour}{rounded_minute:02d}"
             runs[timestamp].append(log_file)
 
     # Sort runs by timestamp (newest first)
